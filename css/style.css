@@ -40,9 +40,10 @@ html {
     font-size: 62.5%;
 }
 
+/* Apparently vh on mobile takes into account the whoooole thing, not just the visible browser window. Using "dvh" per https://medium.com/@alekswebnet/fix-mobile-100vh-bug-in-one-line-of-css-dynamic-viewport-units-in-action-102231e2ed56 */
 body {
     position: relative;
-    min-height: 100vh;
+    min-height: 100dvh;
     overflow: hidden;
 
     background-color: var(--background);
@@ -50,6 +51,7 @@ body {
     font-family: var(--body-text);
     font-size: clamp(1.6rem, 1.6vw, 2.0rem);
 }
+
 
 img {
     width: 100%;
@@ -61,7 +63,7 @@ img {
 
 /* Maybe change this to grid?? */
 .container {
-    min-height: 100vh;
+    min-height: 100dvh;
     display: flex;
     flex-direction: column;
 }
