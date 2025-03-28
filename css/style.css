@@ -22,7 +22,7 @@
 
 :root[data-theme='default'] {
     --background: #96D3E1;
-    --parts-background: #d3d8d9;
+    --parts-background: #eaeff0;
     --speech-bubble: white;
     --light-neutral: lightgray;
     --mid-neutral: gray;
@@ -35,6 +35,11 @@
 /*                        General Styles and Typography                       */
 /* -------------------------------------------------------------------------- */
 
+/* Accessibility things based on https://www.freecodecamp.org/news/override-root-font-size-for-a-better-user-experience/ */
+html {
+    font-size: 62.5%;
+}
+
 body {
     position: relative;
     min-height: 100vh;
@@ -43,14 +48,58 @@ body {
     background-color: var(--background);
     color: var(--text);
     font-family: var(--body-text);
+    font-size: clamp(1.6rem, 1.6vw, 2.0rem);
+}
+
+img {
+    width: 100%;
 }
 
 /* -------------------------------------------------------------------------- */
 /*                           Section-Specific Styles                          */
 /* -------------------------------------------------------------------------- */
 
+/* Maybe change this to grid?? */
+.container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
 header {
+    min-height: 10vh;
+    padding: 1vh 2.5vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 0 0 var(--round-corners) var(--round-corners);
     background-color: var(--parts-background);
+}
+
+.mobile-nav i {
+    font-size: 3.2rem;
+}
+
+.larger-nav {
+    display: none;
+}
+
+main {
+    flex-grow: 1;
+}
+
+footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    align-items: baseline;
+
+    background-color: var(--parts-background);
+}
+
+.focused-image {
+    width: 35vw;   
 }
 
 .location-info {
@@ -62,15 +111,8 @@ header {
     width: 80vw;
     height: 80vh;
     padding: 2.5vh 2.5vw;
-    border-radius: 1em;
+    border-radius: var(--round-corners);
     background-color: var(--parts-background);
-}
-
-.scroll-text {
-    width: 75vw;
-    height: 75vh;
-    
-    overflow: scroll;
 }
 
 .about {
@@ -81,13 +123,17 @@ header {
 
     width: 80vw;
     height: 80vh;
-    padding: 1em;
-    border-radius: 1em;
+    padding: 2.5vh 2.5vw;
+    border-radius: var(--round-corners);
     background-color: var(--parts-background);
-
-    overflow: scroll;
 }
 
+.scroll-text {
+    width: 75vw;
+    height: 75vh;
+    
+    overflow: scroll;
+}
 
 /* This has to have an !important to make sure it overwrites any other display stuff */
 .hidden {
@@ -98,3 +144,12 @@ header {
 /*                                Media Queries                               */
 /* -------------------------------------------------------------------------- */
 
+@media (min-width: 1080px) {
+	.mobile-nav {
+        display: none;
+    }
+    
+    .larger-nav {
+        display: inline-block;
+    }
+}

@@ -10,7 +10,7 @@ function getCurrentWeather() {
     )
     .then(
         response => {
-            // console.log(response);
+            console.log(response);
             displayWeather(response);
         }
     )
@@ -25,15 +25,70 @@ function getCurrentWeather() {
 
 function displayWeather(dataObject) {
     let weatherCode = dataObject.current.weather_code;
-    console.log(weatherCode);
+    let isDay = dataObject.current.is_day;
+    
+    // Create empty weatherIcon variable;
     let weatherIcon;
 
+    // learned a new built-in method: .includes()
+    if (weatherCode == 0) {
+        // Clear
+        if (isDay == 0) {
+            weatherIcon = '<i class="ph-bold ph-moon"></i>';
+        } else {
+            weatherIcon = '<i class="ph-bold ph-sun"></i>';
+        }
+    } else if (weatherCode == 1 || weatherCode == 2) {
+        // Partly Cloudy
+        if (isDay == 0) {
+            weatherIcon = '<i class="ph-bold ph-cloud-moon"></i>';
+        } else {
+            weatherIcon = '<i class="ph-bold ph-cloud-sun"></i>';
+        }
+    } else if (weatherCode == 3) {
+        // Cloudy
+        weatherIcon = '<i class="ph-bold ph-cloud"></i>';
+    } else if ([51, 53, 55, 56, 57, 61, 63, 65, 66, 67, 80, 81,82].includes(weatherCode)) {
+        // Rainy (of any kind)
+        weatherIcon = '<i class="ph-bold ph-cloud-rain"></i>';
+    } else if ([71, 73, 75, 77, 85, 86, 96, 99].includes(weatherCode)) {
+        // Snowy (of any kind) 
+        weatherIcon = '<i class="ph-bold ph-cloud-snow"></i>';
+    } else if (weatherCode == 45 || weatherCode == 48) {
+        // Foggy
+        weatherIcon = '<i class="ph-bold ph-cloud-fog"></i>';
+    } else if (weatherCode == 95) {
+        // Thunderstorms
+        weatherIcon = '<i class="ph-bold ph-cloud-lightning"></i>';
+    } else {
+        weatherIcon = '<i class="ph-bold ph-thermometer"></i>';
+    }
 
-
-    container.innerHTML = `<span>${dataObject.current.weather_code}/${dataObject.current.temperature_2m}&deg;C</span>`
+    container.innerHTML = `<span>${weatherIcon} ${dataObject.current.temperature_2m}&deg;C</span>`
 }
 
 // const setTheme = theme => document.documentElement.className = theme;
 // setTheme('light');
 
 getCurrentWeather();
+
+
+// INTERACTIVITY
+
+function focusImage(thisElement, location) {
+    let thisImage = thisElement;
+    console.log(thisImage);
+}
+
+
+// HIDING AND SHOWING POPUPS
+
+function showOverlay(screen) {
+    let theOverlay = document.querySelector(screen);
+    theOverlay.classList.remove('hidden');
+}
+
+function hideOverlay(thisElement) {
+    let thisOverlay = thisElement.parentElement;
+    thisOverlay.classList.add('hidden');
+}

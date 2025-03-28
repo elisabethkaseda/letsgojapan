@@ -14,8 +14,11 @@
 
             </div>
             <div class="navigation">
-                <nav>
-
+                <nav class="mobile-nav">
+                    <i class="ph-bold ph-info" onclick="showOverlay('#about');"></i>
+                </nav>
+                <nav class="larger-nav">
+                    <span onclick="showOverlay('#about');">About</span>
                 </nav>
             </div>
         </header>
@@ -31,7 +34,18 @@
             </section>
         </main>
         <footer>
-
+            <div class="location">
+                <img src="images/L_SUKAI-TSURI.svg" alt="Tokyo Skytree" onclick="focusImage(this, 'skytree')">
+            </div>
+            <div class="location">
+                <img src="images/L_TOKYO-TAWA.svg" alt="Tokyo Tower" class="focused-image">
+            </div>
+            <div class="location">
+                <img src="images/L_DOMU.svg" alt="Tokyo Dome">
+            </div>
+            <div class="location">
+                <img src="images/L_ASAKUSA.svg" alt="Sensoji">
+            </div>
         </footer>
     </div>
 
@@ -40,16 +54,13 @@
         <h2>Tokyo Tower</h2>
     </section>
     <section id="skytree" class="location-info hidden">
-
+        <h2>Skytree</h2>
     </section>
-    <section id="metropolitan-gov" class="location-info hidden">
-
+    <section id="tokyo-dome-city" class="location-info hidden">
+        <h2>Tokyo Dome City</h2>
     </section>
-    <section id="yoyogi-park" class="location-info hidden">
-
-    </section>
-    <section id="sensoji" class="location-info">
-        <div class="close">
+    <section id="sensoji" class="location-info hidden">
+        <div class="close" onclick="hideOverlay(this);">
             <i class="ph-bold ph-x"></i>
         </div>
         <div class="scroll-text">
@@ -61,7 +72,16 @@
 
     <!-- About Info -->
     <section id="about" class="about hidden">
-
+        <div class="close" onclick="hideOverlay(this);">
+            <i class="ph-bold ph-x"></i>
+        </div>
+        <div class="scroll-text">
+            <h2>About</h2>
+            <p>Here's some info about the site</p>
+            <h3>About Risa</h3>
+            <p>Bio info</p>
+            <p class="copyright-info">Let's Go! Tokyo! &copy;2025 by <a href="http://elisabethkaseda.com" target="_blank">Elisabeth Kaseda</a></p>
+        </div>
     </section>
 
     <script src="js/script.js"></script>
