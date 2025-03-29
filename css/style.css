@@ -24,12 +24,12 @@
 :root[data-theme='default'] {
     --background: #96D3E1;
     --parts-background: #eaeff0;
-    --speech-bubble: white;
-    --light-neutral: lightgray;
-    --mid-neutral: gray;
+    --speech-bubble: #edf2f4;
+    --light-neutral: #cfd4d5;
+    --mid-neutral: #929495;
     --text: #333;
     --accent-red: #ce4210;
-    --accent-white: white;
+    --accent-white: #eaeff0;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -55,6 +55,7 @@ body {
 
 h1 {
     font-size: calc(var(--body-text-size) * 3);
+    color: var(--accent-red);
 }
 
 h2 {
@@ -63,7 +64,7 @@ h2 {
 }
 
 h3 {
-    margin-top: var(--body-text-size);
+    margin-top: calc(var(--body-text-size) * 1.5);
     margin-bottom: calc(var(--body-text-size) * 0.5);
 }
 
@@ -73,7 +74,7 @@ p {
 }
 
 p.fact {
-    margin-bottom: 0;
+    margin-bottom: calc(var(--body-text-size) * 0.5);
 }
 
 /* Making sure last paragraphs don't have weird extra space after (from https://developer.mozilla.org/en-US/docs/Web/CSS/:last-of-type) */
@@ -130,18 +131,43 @@ main {
 
 .speech-bubble {
     position: relative;
-    margin: var(--body-text-size) 0;
+    margin: calc(var(--body-text-size) * 1.5) 0;
+    margin-bottom: calc(var(--body-text-size) * 5);
     padding: 2rem;
 
     border-radius: var(--round-corners);
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     background-color: var(--speech-bubble);
+}
+
+/* Modified from https://codepen.io/antoniasymeonidou/pen/abwENMG */
+.speech-bubble::after {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: -19px;
+    right: 90px;
+    border-width: 20px 0 0 30px;
+    border-style: solid;
+    border-color: var(--speech-bubble) transparent;
+    width: 2px;
+}
+
+.risa-icon {
+    position: absolute;
+    bottom: -80px;
+    right: 0;
+    width: 80px;
 }
 
 footer {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr 1fr;
     align-items: end;
+    padding-top: var(--body-text-size);
 
+    border-radius: var(--round-corners) var(--round-corners) 0 0;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     background-color: var(--parts-background);
 }
 
@@ -149,6 +175,17 @@ footer {
 /* .focused-image {
     width: 35vw;  
 } */
+
+.overlay {
+    position: fixed; 
+    width: 100dvw; 
+    height: 100dvh; 
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+}
 
 .location-info {
     position: absolute;
@@ -164,7 +201,7 @@ footer {
     width: 80dvw;
     height: 70dvh;
     border-radius: var(--round-corners);
-    background-color: var(--mid-neutral);
+    background-color: var(--parts-background);
 }
 
 .about {
@@ -181,7 +218,7 @@ footer {
     width: 80dvw;
     height: 70dvh;
     border-radius: var(--round-corners);
-    background-color: var(--mid-neutral);
+    background-color: var(--parts-background);
 }
 
 .close {
@@ -234,5 +271,16 @@ footer {
     
     .larger-nav {
         display: inline-block;
+    }
+
+    main {
+        display: flex;
+        justify-content: space-between;
+        margin: 0 auto;
+        max-width: 80%;
+    }
+
+    main .summary {
+        text-align: left;
     }
 }

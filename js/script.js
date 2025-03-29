@@ -83,12 +83,16 @@ getCurrentWeather();
 
 // HIDING AND SHOWING POPUPS
 
+const darkOverlay = document.querySelector('.overlay');
+
 function showOverlay(overlay) {
     let theOverlay = document.querySelector(overlay);
     theOverlay.classList.remove('hidden');
+    darkOverlay.classList.remove('hidden');
 }
 
 function hideOverlay(thisElement) {
     let thisOverlay = thisElement.parentElement;
     thisOverlay.classList.add('hidden');
+    darkOverlay.classList.add('hidden');
 }
