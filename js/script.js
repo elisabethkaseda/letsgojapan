@@ -75,16 +75,16 @@ getCurrentWeather();
 
 // INTERACTIVITY
 
-function focusImage(thisElement, location) {
-    let thisImage = thisElement;
-    console.log(thisImage);
-}
+// function focusImage(thisElement, location) {
+//     let thisImage = thisElement;
+//     console.log(thisImage);
+// }
 
 
 // HIDING AND SHOWING POPUPS
 
-function showOverlay(screen) {
-    let theOverlay = document.querySelector(screen);
+function showOverlay(overlay) {
+    let theOverlay = document.querySelector(overlay);
     theOverlay.classList.remove('hidden');
 }
 

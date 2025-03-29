@@ -26,38 +26,74 @@
             <!-- Front Page Info -->
             <section class="site-info">
                 <h1>Let's Go! Tokyo!</h1>
-                <p>Find information about some of Tokyo's most popular tourist locations here.</p>
+                <p class="summary">Select a Tokyo landmark below to learn more about it.</p>
             </section>
             <section class="risa-info">
-                <p>Hi! I'm Risa.</p>
-                <p>I'm here to share some insider info about these places, based on my five years living in Tokyo. You can find me in the "Risa's Recs" section of each location!</p>
+                <div class="speech-bubble">
+                    <p>Hi! I'm Risa. I'm here to share some insider info about these places, based on my five years living in Tokyo. </p>
+                    <p>You can find me in the "Risa's Recs" section of each location!</p>
+                </div>
             </section>
         </main>
         <footer>
             <div class="location">
-                <img src="images/L_SUKAI-TSURI.svg" alt="Tokyo Skytree" onclick="focusImage(this, 'skytree')">
+                <img src="images/L_TOKYO-TAWA.svg" alt="Tokyo Tower" onclick="showOverlay('#tokyo-tower');" class="">
             </div>
             <div class="location">
-                <img src="images/L_TOKYO-TAWA.svg" alt="Tokyo Tower" class="focused-image">
+                <img src="images/L_DOMU.svg" alt="Tokyo Dome"  onclick="showOverlay('#tokyo-dome-city');">
             </div>
             <div class="location">
-                <img src="images/L_DOMU.svg" alt="Tokyo Dome">
+                <img src="images/L_ASAKUSA.svg" alt="Sensoji"  onclick="showOverlay('#sensoji');">
             </div>
             <div class="location">
-                <img src="images/L_ASAKUSA.svg" alt="Sensoji">
+                <img src="images/L_SUKAI-TSURI.svg" alt="Tokyo Skytree" onclick="showOverlay('#skytree');">
             </div>
         </footer>
     </div>
 
     <!-- Location Info -->
+    <div class="overlay">
+
+    </div>
     <section id="tokyo-tower" class="location-info hidden">
-        <h2>Tokyo Tower</h2>
-    </section>
-    <section id="skytree" class="location-info hidden">
-        <h2>Skytree</h2>
+        <div class="close" onclick="hideOverlay(this);">
+            <i class="ph-bold ph-x"></i>
+        </div>
+        <div class="scroll-text">
+            <h2>Tokyo Tower</h2>
+            <img src="images/photo-tokyo-tower.jpg" alt="The red-and-white Tokyo Tower from a distance at sunset.">
+            <p class="summary">Short summary</p>
+            <p class="fact">Location</p>
+            <p class="fact">Nearby Stations:</p>
+            <p class="fact">More Info: <a href=""></a></p>
+
+            <h3>Risa's Recs</h3>
+            <p class="fact"><strong>Best time to visit:</strong></p>
+            <p class="fact"><strong>Must do:</strong></p>
+            <div class="speech-bubble">
+                <p>Some fun fact</p>
+            </div>
+        </div>
     </section>
     <section id="tokyo-dome-city" class="location-info hidden">
-        <h2>Tokyo Dome City</h2>
+        <div class="close" onclick="hideOverlay(this);">
+            <i class="ph-bold ph-x"></i>
+        </div>
+        <div class="scroll-text">
+            <h2>Tokyo Dome City</h2>
+            <img src="images/photo-tokyo-tower.jpg" alt="The red-and-white Tokyo Tower from a distance at sunset.">
+            <p class="summary">Short summary</p>
+            <p class="fact">Location</p>
+            <p class="fact">Nearby Stations:</p>
+            <p class="fact">More Info: <a href=""></a></p>
+
+            <h3>Risa's Recs</h3>
+            <p class="fact"><strong>Best time to visit:</strong></p>
+            <p class="fact"><strong>Must do:</strong></p>
+            <div class="speech-bubble">
+                <p>Some fun fact</p>
+            </div>
+        </div>
     </section>
     <section id="sensoji" class="location-info hidden">
         <div class="close" onclick="hideOverlay(this);">
@@ -65,8 +101,38 @@
         </div>
         <div class="scroll-text">
             <h2>Sensoji</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque ac commodo leo, non ornare neque. Sed metus nunc, elementum ac erat sed, venenatis fringilla mauris. Proin a eros elit. Sed sit amet interdum sem. Duis aliquet cursus finibus. Vivamus ac venenatis arcu. Aenean vestibulum sit amet tortor dapibus aliquet. Suspendisse potenti. In quis est in mi hendrerit placerat. Nunc libero neque, fringilla vitae tortor a, lacinia commodo nisl. Curabitur lacinia risus et augue aliquet dapibus. Phasellus interdum massa vitae ante sodales, quis egestas ex gravida. Aliquam pharetra ornare mi, vitae viverra orci cursus maximus. Sed vel urna efficitur, pulvinar nisi sed, pulvinar quam. Maecenas aliquam, libero ac tincidunt convallis, magna sapien ullamcorper metus, ut pellentesque turpis est eu sem.</p>
-            <p>Donec tincidunt justo dictum lorem sollicitudin, ut euismod nulla faucibus. Proin tristique lectus aliquet quam fermentum accumsan et nec massa. Fusce faucibus et lacus in sollicitudin. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam vulputate ullamcorper risus quis egestas. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec pulvinar pellentesque magna, id rhoncus nunc vulputate non. Aliquam faucibus justo ac neque fringilla imperdiet. Phasellus in ipsum sed dolor varius varius. Nam laoreet eros in pellentesque dignissim. Nulla facilisi. Curabitur facilisis magna metus, in facilisis mauris laoreet sit amet. Donec vel magna sit amet turpis tristique bibendum. Praesent viverra, augue id euismod sodales, nisi diam blandit mauris, vel varius diam orci eget nulla. Nulla ultrices, nulla egestas dignissim ornare, leo dui ultricies quam, vitae venenatis nisl nibh sed arcu.</p>
+            <img src="images/photo-tokyo-tower.jpg" alt="The red-and-white Tokyo Tower from a distance at sunset.">
+            <p class="summary">Short summary</p>
+            <p class="fact">Location</p>
+            <p class="fact">Nearby Stations:</p>
+            <p class="fact">More Info: <a href=""></a></p>
+
+            <h3>Risa's Recs</h3>
+            <p class="fact"><strong>Best time to visit:</strong></p>
+            <p class="fact"><strong>Must do:</strong></p>
+            <div class="speech-bubble">
+                <p>Some fun fact</p>
+            </div>
+        </div>
+    </section>
+    <section id="skytree" class="location-info hidden">
+        <div class="close" onclick="hideOverlay(this);">
+            <i class="ph-bold ph-x"></i>
+        </div>
+        <div class="scroll-text">
+            <h2>Tokyo Skytree</h2>
+            <img src="images/photo-tokyo-tower.jpg" alt="The red-and-white Tokyo Tower from a distance at sunset.">
+            <p class="summary">Short summary</p>
+            <p class="fact">Location</p>
+            <p class="fact">Nearby Stations:</p>
+            <p class="fact">More Info: <a href=""></a></p>
+
+            <h3>Risa's Recs</h3>
+            <p class="fact"><strong>Best time to visit:</strong></p>
+            <p class="fact"><strong>Must do:</strong></p>
+            <div class="speech-bubble">
+                <p>Some fun fact</p>
+            </div>
         </div>
     </section>
 
@@ -77,9 +143,11 @@
         </div>
         <div class="scroll-text">
             <h2>About</h2>
-            <p>Here's some info about the site</p>
+            <p>Let's Go! Tokyo! was created to share info about some of Tokyo's most iconic locations.</p>
             <h3>About Risa</h3>
-            <p>Bio info</p>
+            <p>Elisabeth "Risa" Kaseda is a front-end web developer and designer currently living in Canada. She is of Japanese descent and spent seven years living in Japan, five of which were in Tokyo. She fell in love with the city and wants others to love it, too.</p>
+            <h3>Credits</h3>
+            <p>Weather data by <a href="https://open-meteo.com/">Open-Meteo.com</a></p>
             <p class="copyright-info">Let's Go! Tokyo! &copy;2025 by <a href="http://elisabethkaseda.com" target="_blank">Elisabeth Kaseda</a></p>
         </div>
     </section>
