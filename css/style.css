@@ -22,14 +22,13 @@
 }
 
 :root[data-theme='default'] {
-    --background: #96D3E1;
-    --parts-background: #eaeff0;
-    --speech-bubble: #edf2f4;
-    --light-neutral: #cfd4d5;
-    --mid-neutral: #929495;
-    --text: #333;
-    --accent-red: #ce4210;
-    --accent-white: #eaeff0;
+    --background: #B1E0FC;
+    --parts-background: #D9F0FC;
+    --speech-bubble: #F7F7F7;
+    --neutral: #6C7476;
+    --text: #231F20;
+    --accent-red: #CC1C16;
+    --accent-white: #F7F7F7;
 }
 
 /* -------------------------------------------------------------------------- */
@@ -56,6 +55,7 @@ body {
 h1 {
     font-size: calc(var(--body-text-size) * 3);
     color: var(--accent-red);
+    text-align: center;
 }
 
 h2 {
@@ -127,6 +127,7 @@ main {
 
 .risa-info {
     max-width: 500px;
+    margin: 0 auto;
 }
 
 .speech-bubble {
@@ -276,12 +277,30 @@ footer {
     main {
         display: flex;
         justify-content: space-between;
-        gap: calc(var(--body-text-size) * 2);
+        gap: calc(var(--body-text-size) * 4);
         margin: 0 auto;
-        max-width: 80%;
+        max-width: 734px;
+    }
+
+    .site-info, 
+    .risa-info {
+        flex: 1 1 0;
+    }
+
+    h1 {
+        text-align: left;
     }
 
     main .summary {
         text-align: left;
+        margin-top: 2rem;
+    }
+
+    header {
+        padding: 1vh calc(50vw - 367px);
+    }
+
+    footer {
+        padding: 0 calc(50vw - 367px);
     }
 }
